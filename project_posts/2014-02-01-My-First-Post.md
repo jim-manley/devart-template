@@ -1,5 +1,4 @@
-Insert a description to describe your update to document your creative process. The Commissioned Interactive Artists will be doing the same so you can reference their Project Posts.
+I have submitted a brief initial description of my project, World Wide Waste, in the project_summary.md file, including an example of the Python code used to create the 3-D models for Earth and its atmosphere, and some links to images used to create and demonstrate the early prototype.
 
-![Example Image](../project_images/Earth.jpg?raw=true "Example Image")
+![Prototype Snapshot](../project_images/Earth.jpg?raw=true "Prototype Snapshot")
 
-https://www.youtube.com/watch?v=30yGOxJJ2PQ
