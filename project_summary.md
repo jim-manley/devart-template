@@ -1,33 +1,81 @@
 # Project Title
-Insert the name of your project
+World Wide Waste
+- Life is Temporary on a Fragile Blue Planet
 
 ## Authors
-- Insert main author name, surname, github account
-- Insert other author(s) name, surname, github account (one per list element)
+- Jim Manley - GitHub Account: jim-manley
 
 ## Description
-Insert a description containing about 100 to 150 words, including your motivation and the meaning behind your idea and execution. The Judges will be keen to know how your idea pushes the boundaries of code and technology. 
+World Wide Waste provides the visitor an interactive glimpse of how sensitive our planet's resources are to our actions.  A 3-D spherical model of the Earth rotate, using NASA visible imagery of terrain and ocean surfaces as a texture map.  The atmosphere is represented in a slightly larger separate spherical model with a transparent-background texture map derived from NASA infrared satellite imagery that shows cloud cover world-wide, and it is rotating at a slightly different rate from the planet model.
+
+Interactivity is implemented via either camera-tracked hand gestures or button/trackball input so that visitors can change the longitudinal orientation and tilt of the Earth's axis to view the weather at any location on the planet while it continues rotating.  They can also blow on the display and cause the cloud layer and terrain to scatter, representing human devastation that can be caused all-too-easily by every inhabitant at any moment. 
 
 ## Link to Prototype
 NOTE: If your project lives online you can add one or more links here. Make sure you have a stable version of your project running before linking it.
 
-[Example Link](http://www.google.com "Example Link")
+[On-line Project Demo](http://www.google.com "On-line Project Demo")
 
 ## Example Code
-NOTE: Wrap your code blocks or any code citation by using ``` like the example below.
 ```
-function test() {
-  console.log("Printing a test");
-}
+#!/usr/bin/python
+from __future__ import absolute_import, division, print_function, unicode_literals
+"""
+The atmosphere has blend set to True, and so has to be drawn after the object behind 
+it to allow it to show through.  Use the import pi3d method to load *everything*
+"""
+from math import sin, cos
+import demo
+import pi3d
+# Setup display and initialize pi3d
+DISPLAY = pi3d.Display.create(x=50, y=50)
+DISPLAY.set_background(0,0,0,1)    	# r,g,b,alpha
+shader = pi3d.Shader("uv_reflect")
+flatsh = pi3d.Shader("uv_flat")
+#========================================
+# Setting 2nd param to True renders 'True' blending
+# (this can be changed later to 'False' with 'cloud_image.blend = False')
+cloud_image = pi3d.Texture("textures/clouds_map.png",True)
+earth_image = pi3d.Texture("textures/earth_map.jpg")
+stars_image = pi3d.Texture("textures/stars.jpg")
+water_image = pi3d.Texture("textures/water.jpg")
+# Load shapes
+earth_sphere = pi3d.Sphere(radius=2, slices=24, sides=24,
+                  name="earth", z=5.8)
+clouds_sphere = pi3d.Sphere(radius=2.05, slices=24, sides=24,
+                   name="clouds", z=5.8)
+stars_plane = pi3d.Plane(w=50, h=50, name="stars", z=30)
+# Fetch key presses
+the_keys = pi3d.Keyboard()
+
+# Display scene
+while DISPLAY.loop_running():
+  stars_plane.rotateIncZ(0.01)
+  earth_sphere.rotateIncY(-0.1)
+  clouds_sphere.rotateIncY(-0.14)
+
+  earth_sphere.draw(shader, [earth_image])
+  stars_plane.draw(flatsh,[stars_image])
+  clouds_sphere.draw(shader, [clouds_image]) # this has to be last as blend = True
+
+  k = they_keys.read()
+  if k >-1:
+    # p key is pressed
+    if k==112:
+      pi3d.screenshot("earth.jpg")
+    # escape key is pressed
+    elif k==27:
+      the_keys.close()
+      DISPLAY.stop()
+      break
 ```
 ## Links to External Libraries
- NOTE: You can also use this space to link to external libraries or Github repositories you used on your project.
 
-[Example Link](http://www.google.com "Example Link")
+[Pi3D Python Library](https://github.com/tipam/pi3d "Pi3D Python Library")
 
 ## Images & Videos
-NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
 
-![Example Image](project_images/cover.jpg?raw=true "Example Image")
+![Earth Terrain Texture Map](https://github.com/pi3d/pi3d_demos/blob/master/textures/world_map.jpg?raw=true "Earth Terrain Texture Map")
 
-https://www.youtube.com/watch?v=30yGOxJJ2PQ
+![Clouds Texture Map](http://raspberry_office.byethost11.com/Planets/Earth_Clouds_on_Black.jpg?raw=true "Clouds Texture Map")
+
+![Project Snapshot](http://raspberry_office.byethost11.com/Planets/Earth.jpg?raw=true "Project Snapshot")
