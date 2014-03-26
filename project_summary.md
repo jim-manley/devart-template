@@ -6,7 +6,7 @@ World Wide Waste
 - Jim Manley - GitHub Account: jim-manley
 
 ## Description
-World Wide Waste provides the visitor an interactive glimpse of how sensitive our planet's resources are to our actions.  A 3-D spherical model of the Earth rotate, using NASA visible imagery of terrain and ocean surfaces as a texture map.  The atmosphere is represented in a slightly larger separate spherical model with a transparent-background texture map derived from NASA infrared satellite imagery that shows cloud cover world-wide, and it is rotating at a slightly different rate from the planet model.
+World Wide Waste provides the visitor an interactive glimpse of how sensitive our planet's resources are to our actions.  A 3-D spherical model of the Earth rotates, using NASA visible imagery of terrain and ocean surfaces as a texture map.  The atmosphere is represented in a slightly larger separate spherical model with a transparent-background texture map derived from NASA infrared satellite imagery that shows cloud cover world-wide, and it is rotating at a slightly different rate from the planet model.
 
 Interactivity is implemented via either camera-tracked hand gestures or button/trackball input so that visitors can change the longitudinal orientation and tilt of the Earth's axis to view the weather at any location on the planet while it continues rotating.  They can also blow on the display and cause the cloud layer and terrain to scatter, representing human devastation that can be caused all-too-easily by every inhabitant at any moment. 
 
