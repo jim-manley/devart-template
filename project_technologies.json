@@ -1,16 +1,30 @@
 {
     "technologies": {
         "apis": [
-            "insert apis"
+            "maps"
         ],
         "platforms": [
-            "insert platforms"
+            "raspberry pi",
+            "linux"
         ],
         "toolkits": [
-            "insert toolkits"
+            "opengl"
         ]
     },
     "themes": [
-        "insert themes"
+        "ecology",
+        "environment",
+        "survival",
+        "climate change",
+        "water",
+        "conservation",
+        "pollution",
+        "world citizens",
+        "disasters",
+        "overpopulation",
+        "overdevelopment",
+        "deforestation",
+        "ocean acidification",
+        "erosion"
     ]
 }
