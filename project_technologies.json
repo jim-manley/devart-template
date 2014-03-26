@@ -9,6 +9,10 @@
         ],
         "toolkits": [
             "opengl"
+        ],
+        "languages": [
+            "python",
+            "glsl"
         ]
     },
     "themes": [
