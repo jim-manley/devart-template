@@ -1,9 +1,9 @@
-# Project Title
-World Wide Waste
+# World Wide Waste
 - Life is Temporary on a Fragile Blue Planet
 
-## Authors
-- Jim Manley - GitHub Account: jim-manley
+## Author
+- Jim Manley
+- GitHub Account: jim-manley
 
 ## Description
 World Wide Waste provides the visitor an interactive glimpse of how sensitive our planet's resources are to our actions.  A 3-D spherical model of the Earth rotates, using NASA visible imagery of terrain and ocean surfaces as a texture map.  The atmosphere is represented in a slightly larger separate spherical model with a transparent-background texture map derived from NASA infrared satellite imagery that shows cloud cover world-wide, and it is rotating at a slightly different rate from the planet model.
@@ -11,15 +11,17 @@ World Wide Waste provides the visitor an interactive glimpse of how sensitive ou
 Interactivity is implemented via either camera-tracked hand gestures or button/trackball input so that visitors can change the longitudinal orientation and tilt of the Earth's axis to view the weather at any location on the planet while it continues rotating.  They can also blow on the display and cause the cloud layer and terrain to scatter, representing human devastation that can be caused all-too-easily by every inhabitant at any moment. 
 
 ## Link to Prototype
-NOTE: If your project lives online you can add one or more links here. Make sure you have a stable version of your project running before linking it.
 
-[On-line Project Demo](http://www.google.com "On-line Project Demo")
+Currently, the output of the software is a 6 gigabit/second 1080p/60Hz signal coming directly out of the Raspberry Pi's HDMI port.  A reduced-resolution stream that can be viewed via a browser will be provided in a future update.
+
+[On-line Prototype Demo Placeholder Link](http://www.google.com "On-line Prototype Demo Placeholder Link")
 
 ## Example Code
 ```
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function, unicode_literals
 """
+Based on Earth.py demo at https://github.com/pi3d/pi3d_demos/blob/master/Earth.py
 The atmosphere has blend set to True, and so has to be drawn after the object behind 
 it to allow it to show through.  Use the import pi3d method to load *everything*
 """
