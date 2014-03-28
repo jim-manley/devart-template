@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function, unicode_literals
 """
-World_Wide_Waste.py prototype initial version 0.000002
+World_Wide_Waste.py prototype initial version 0.000003
 Based on the Pi3D Earth.py demo found at 
 https://github.com/pi3d/pi3d_demos/blob/master/Earth.py
 The atmosphere has blend set to True, and so has to be drawn after the object behind 
