@@ -29,7 +29,7 @@ skull_shader = pi3d.Shader("mat_light")
 clouds_image = pi3d.Texture("textures/earth_clouds.png",True)
 earth_image = pi3d.Texture("textures/world_map.jpg",True)
 stars_image = pi3d.Texture("textures/stars2.jpg")
-water_image = pi3d.Texture("textures/water.jpg")
+
 # Load shapes
 earth_sphere = pi3d.Sphere(radius=2, slices=24, sides=24,
                   name="earth", z=5.8)
