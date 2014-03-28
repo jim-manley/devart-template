@@ -1,53 +1,70 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function, unicode_literals
 """
-World_Wide_Waste.py prototype initial version 0.000001
+World_Wide_Waste.py prototype initial version 0.000002
 Based on the Pi3D Earth.py demo found at 
 https://github.com/pi3d/pi3d_demos/blob/master/Earth.py
 The atmosphere has blend set to True, and so has to be drawn after the object behind 
 it to allow it to show through.  Use the import pi3d method to load *everything*
 """
+#!/usr/bin/python
+from __future__ import absolute_import, division, print_function, unicode_literals
+""" 
+Simple textruring of Sphere objects against a plane. The atmosphere has
+blend set to True and so has to be drawn after object behind it to allow them
+to show through.  Uses the import pi3d method to load *everything*
+"""
 from math import sin, cos
 import demo
 import pi3d
-# Setup display and initialize pi3d
+# Setup display and initialise pi3d
 DISPLAY = pi3d.Display.create(x=50, y=50)
 DISPLAY.set_background(0,0,0,1)    	# r,g,b,alpha
 shader = pi3d.Shader("uv_reflect")
 flatsh = pi3d.Shader("uv_flat")
+skull_shader = pi3d.Shader("mat_light")
 #========================================
-# Setting 2nd param to True renders 'True' blending
-# (this can be changed later to 'False' with 'cloud_image.blend = False')
-cloud_image = pi3d.Texture("textures/clouds_map.png",True)
-earth_image = pi3d.Texture("textures/earth_map.jpg")
-stars_image = pi3d.Texture("textures/stars.jpg")
+# Setting 2nd param to True renders 'True' Blending
+# (this can be changed later to 'False' with 'cloudimg.blend = False')
+clouds_image = pi3d.Texture("textures/earth_clouds.png",True)
+earth_image = pi3d.Texture("textures/world_map.jpg",True)
+stars_image = pi3d.Texture("textures/stars2.jpg")
 water_image = pi3d.Texture("textures/water.jpg")
 # Load shapes
 earth_sphere = pi3d.Sphere(radius=2, slices=24, sides=24,
                   name="earth", z=5.8)
-clouds_sphere = pi3d.Sphere(radius=2.05, slices=24, sides=24,
+                  
+earth_sphere.set_alpha(0.5)
+atmo_sphere = pi3d.Sphere(radius=2.05, slices=24, sides=24,
                    name="clouds", z=5.8)
-stars_plane = pi3d.Plane(w=50, h=50, name="stars", z=30)
+star_plane = pi3d.Plane(w=50, h=50, name="stars", z=20)
+
+skull_model = pi3d.Model(file_string='models/skull_1.obj', name='skull_1', 
+              y=-1.8, z=6.0, sx=0.5, sy=0.5, sz=0.5)
+skull_model.set_shader(skull_shader)
+
 # Fetch key presses
 the_keys = pi3d.Keyboard()
 
 # Display scene
 while DISPLAY.loop_running():
-  stars_plane.rotateIncZ(0.01)
   earth_sphere.rotateIncY(-0.1)
-  clouds_sphere.rotateIncY(-0.14)
+  atmo_sphere.rotateIncY(-0.14)
+  skull_model.rotateIncY(-0.1)
 
+  skull_model.draw()
   earth_sphere.draw(shader, [earth_image])
-  stars_plane.draw(flatsh,[stars_image])
-  clouds_sphere.draw(shader, [clouds_image]) # this has to be last as blend = True
+  star_plane.draw(flatsh,[stars_image])
+  atmo_sphere.draw(shader, [clouds_image]) # this has to be last as blend = True
 
-  k = they_keys.read()
+  k = the_keys.read()
   if k >-1:
-    # p key is pressed
+    # p key pressed
     if k==112:
-      pi3d.screenshot("earth.jpg")
-    # escape key is pressed
+      pi3d.screenshot("earth_skull.jpg")
+    # escape key pressed
     elif k==27:
       the_keys.close()
       DISPLAY.stop()
       break
+
